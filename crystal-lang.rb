@@ -1,7 +1,12 @@
 require 'formula'
 
-CRYSTAL_VERSION = "0.7.5"
-CRYSTAL_SHA = "442ef53443cab7806283d6dc27526e64d7248db2"
+PLATFORM = RUBY_PLATFORM["linux"] ? "linux" : "darwin"
+CRYSTAL_VERSION  = "0.7.5"
+CRYSTAL_SHA = if PLATFORM == "linux"
+  "e852d176d26e749083005fb7689ff2c28f3a987df62cb29b6dd8e7f417c90a6c"
+else
+  "1ba2fa6b614aa9814efe15745fba5289cb3f423e8fd0d99ec1e8aba24fe44950"
+end
 
 class CrystalLang < Formula
   homepage 'http://crystal-lang.org/'
@@ -9,8 +14,8 @@ class CrystalLang < Formula
   conflicts_with 'crystal'
 
   stable do
-    url "https://github.com/manastech/crystal/releases/download/#{CRYSTAL_VERSION}/crystal-#{CRYSTAL_VERSION}-1-darwin-x86_64.tar.gz"
-    sha1 CRYSTAL_SHA
+    url "https://github.com/manastech/crystal/releases/download/#{CRYSTAL_VERSION}/crystal-#{CRYSTAL_VERSION}-1-#{PLATFORM}-x86_64.tar.gz"
+    sha256 CRYSTAL_SHA
   end
 
   # head do
