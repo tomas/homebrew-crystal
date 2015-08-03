@@ -26,6 +26,11 @@ class CrystalLang < Formula
   #   end
   # end
 
+  depends_on "libevent"
+  depends_on "pcre"
+  depends_on "bdw-gc"
+  depends_on "libunwind"
+
   depends_on "llvm" => :optional
   depends_on "libpcl" => :recommended
   depends_on "pkg-config"
